@@ -5,15 +5,17 @@
    "tags": "personal",
    "images": "",
    "duration": 10,
-   "anwers in keyterms": ""
+   "anwers in keyterms": "",
+   "comments": ""
  },
  {
    "question": "How could future technologies foster commoning?",
-   "order": "",
-   "tags": "",
+   "order": "outro",
+   "tags": "technology",
    "images": "",
-   "duration": null,
-   "anwers in keyterms": ""
+   "duration": 5,
+   "anwers in keyterms": "",
+   "comments": ""
  },
  {
    "question": "Do you think decentralization is a phantasm? ",
@@ -21,7 +23,8 @@
    "tags": "politics",
    "images": "",
    "duration": 10,
-   "anwers in keyterms": ""
+   "anwers in keyterms": "",
+   "comments": "to me this feels to obvious of a blockchain question"
  },
  {
    "question": "How are decentralization and technology related to each other?",
@@ -29,15 +32,17 @@
    "tags": "governance",
    "images": "",
    "duration": null,
-   "anwers in keyterms": ""
+   "anwers in keyterms": "",
+   "comments": ""
  },
  {
    "question": "Who do you trust more: people or algorithms? Or even more broader: people or technology?",
-   "order": "",
+   "order": "mid",
    "tags": "technology",
    "images": "",
-   "duration": null,
-   "anwers in keyterms": ""
+   "duration": 5,
+   "anwers in keyterms": "",
+   "comments": "originally, this question was why do we trust people more than algorithms - I think it's more interesting this way"
  },
  {
    "question": "Is technology based on reason or on rhetoric?",
@@ -45,23 +50,26 @@
    "tags": "",
    "images": "",
    "duration": null,
-   "anwers in keyterms": ""
+   "anwers in keyterms": "",
+   "comments": ""
  },
  {
    "question": "Is a good society a predictable society?",
-   "order": "",
+   "order": "mid",
    "tags": "governance",
    "images": "",
-   "duration": null,
-   "anwers in keyterms": "ABM"
+   "duration": 5,
+   "anwers in keyterms": "ABM",
+   "comments": ""
  },
  {
    "question": "Is surveillance always bad?",
-   "order": "",
-   "tags": "",
+   "order": "mid",
+   "tags": "governance",
    "images": "",
-   "duration": null,
-   "anwers in keyterms": ""
+   "duration": 10,
+   "anwers in keyterms": "",
+   "comments": ""
  },
  {
    "question": "Why do you think are utopias always communist and why does this not work in reality?",
@@ -69,39 +77,44 @@
    "tags": "politics",
    "images": "",
    "duration": null,
-   "anwers in keyterms": ""
+   "anwers in keyterms": "",
+   "comments": "this could be connected with question 4"
  },
  {
    "question": "Are you ready to give up individualism?",
-   "order": "",
+   "order": "intro",
    "tags": "personal",
    "images": "",
    "duration": 5,
-   "anwers in keyterms": ""
+   "anwers in keyterms": "",
+   "comments": ""
  },
  {
    "question": "How can we build up trust in a community?",
-   "order": "",
+   "order": "mid",
    "tags": "governance",
    "images": "",
-   "duration": null,
-   "anwers in keyterms": ""
+   "duration": 10,
+   "anwers in keyterms": "",
+   "comments": ""
  },
  {
    "question": "Who decides what is of value to whom?",
-   "order": "",
-   "tags": "",
+   "order": "mid",
+   "tags": "politics",
    "images": "",
-   "duration": null,
-   "anwers in keyterms": ""
+   "duration": 10,
+   "anwers in keyterms": "",
+   "comments": ""
  },
  {
    "question": "How can an algorithm be fairer than those who design it?",
-   "order": "",
-   "tags": "",
+   "order": "mid",
+   "tags": "technology/governance",
    "images": "",
-   "duration": null,
-   "anwers in keyterms": ""
+   "duration": 10,
+   "anwers in keyterms": "",
+   "comments": ""
  },
  {
    "question": "Do you think money ruins everything?",
@@ -109,15 +122,17 @@
    "tags": "economy",
    "images": "",
    "duration": null,
-   "anwers in keyterms": ""
+   "anwers in keyterms": "",
+   "comments": ""
  },
  {
    "question": "Can we think algorithms as common? Is there an algorithmic commons (space)?",
-   "order": "mid",
+   "order": "",
    "tags": "governance",
    "images": "",
    "duration": null,
-   "anwers in keyterms": ""
+   "anwers in keyterms": "",
+   "comments": ""
  },
  {
    "question": "How important is knowing each other for a commonist situation?",
@@ -125,7 +140,8 @@
    "tags": "personal",
    "images": "",
    "duration": null,
-   "anwers in keyterms": ""
+   "anwers in keyterms": "",
+   "comments": ""
  },
  {
    "question": "What techniques of (quickly) disclosing your identity can you think of?",
@@ -133,7 +149,8 @@
    "tags": "",
    "images": "",
    "duration": null,
-   "anwers in keyterms": "here i think of authenticity and authentication, bitcoin style trust etc"
+   "anwers in keyterms": "here i think of authenticity and authentication, bitcoin style trust etc",
+   "comments": ""
  },
  {
    "question": "How would you present yourself to a stranger - to a community?",
@@ -141,7 +158,8 @@
    "tags": "",
    "images": "",
    "duration": 5,
-   "anwers in keyterms": ""
+   "anwers in keyterms": "",
+   "comments": ""
  },
  {
    "question": "How can a community present itself?",
@@ -149,7 +167,8 @@
    "tags": "",
    "images": "",
    "duration": 5,
-   "anwers in keyterms": ""
+   "anwers in keyterms": "",
+   "comments": "don't understand where this question is going"
  },
  {
    "question": "How can a community communicate its values or expectations?",
@@ -157,7 +176,8 @@
    "tags": "",
    "images": "",
    "duration": null,
-   "anwers in keyterms": ""
+   "anwers in keyterms": "",
+   "comments": ""
  },
  {
    "question": "How good or bad it is when capitalism swallows anarchic / commonist ideas? for example the horizontalization of companies structure. Or how do you see it: are we feeding justice to capitalism, or is capitalism using this to its own gain?",
@@ -165,6 +185,7 @@
    "tags": "politics",
    "images": "",
    "duration": 10,
-   "anwers in keyterms": ""
+   "anwers in keyterms": "",
+   "comments": ""
  }
 ]
