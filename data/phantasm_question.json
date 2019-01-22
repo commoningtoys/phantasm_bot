@@ -1,0 +1,170 @@
+[
+ {
+   "question": "What does commoning with tech mean to you?",
+   "order": "intro",
+   "tags": "personal",
+   "images": "",
+   "duration": 10,
+   "anwers in keyterms": ""
+ },
+ {
+   "question": "How could future technologies foster commoning?",
+   "order": "",
+   "tags": "",
+   "images": "",
+   "duration": null,
+   "anwers in keyterms": ""
+ },
+ {
+   "question": "Do you think decentralization is a phantasm? ",
+   "order": "outro",
+   "tags": "politics",
+   "images": "",
+   "duration": 10,
+   "anwers in keyterms": ""
+ },
+ {
+   "question": "How are decentralization and technology related to each other?",
+   "order": "mid",
+   "tags": "governance",
+   "images": "",
+   "duration": null,
+   "anwers in keyterms": ""
+ },
+ {
+   "question": "Who do you trust more: people or algorithms? Or even more broader: people or technology?",
+   "order": "",
+   "tags": "technology",
+   "images": "",
+   "duration": null,
+   "anwers in keyterms": ""
+ },
+ {
+   "question": "Is technology based on reason or on rhetoric?",
+   "order": "",
+   "tags": "",
+   "images": "",
+   "duration": null,
+   "anwers in keyterms": ""
+ },
+ {
+   "question": "Is a good society a predictable society?",
+   "order": "",
+   "tags": "governance",
+   "images": "",
+   "duration": null,
+   "anwers in keyterms": "ABM"
+ },
+ {
+   "question": "Is surveillance always bad?",
+   "order": "",
+   "tags": "",
+   "images": "",
+   "duration": null,
+   "anwers in keyterms": ""
+ },
+ {
+   "question": "Why do you think are utopias always communist and why does this not work in reality?",
+   "order": "",
+   "tags": "politics",
+   "images": "",
+   "duration": null,
+   "anwers in keyterms": ""
+ },
+ {
+   "question": "Are you ready to give up individualism?",
+   "order": "",
+   "tags": "personal",
+   "images": "",
+   "duration": 5,
+   "anwers in keyterms": ""
+ },
+ {
+   "question": "How can we build up trust in a community?",
+   "order": "",
+   "tags": "governance",
+   "images": "",
+   "duration": null,
+   "anwers in keyterms": ""
+ },
+ {
+   "question": "Who decides what is of value to whom?",
+   "order": "",
+   "tags": "",
+   "images": "",
+   "duration": null,
+   "anwers in keyterms": ""
+ },
+ {
+   "question": "How can an algorithm be fairer than those who design it?",
+   "order": "",
+   "tags": "",
+   "images": "",
+   "duration": null,
+   "anwers in keyterms": ""
+ },
+ {
+   "question": "Do you think money ruins everything?",
+   "order": "",
+   "tags": "economy",
+   "images": "",
+   "duration": null,
+   "anwers in keyterms": ""
+ },
+ {
+   "question": "Can we think algorithms as common? Is there an algorithmic commons (space)?",
+   "order": "mid",
+   "tags": "governance",
+   "images": "",
+   "duration": null,
+   "anwers in keyterms": ""
+ },
+ {
+   "question": "How important is knowing each other for a commonist situation?",
+   "order": "intro",
+   "tags": "personal",
+   "images": "",
+   "duration": null,
+   "anwers in keyterms": ""
+ },
+ {
+   "question": "What techniques of (quickly) disclosing your identity can you think of?",
+   "order": "intro",
+   "tags": "",
+   "images": "",
+   "duration": null,
+   "anwers in keyterms": "here i think of authenticity and authentication, bitcoin style trust etc"
+ },
+ {
+   "question": "How would you present yourself to a stranger - to a community?",
+   "order": "intro",
+   "tags": "",
+   "images": "",
+   "duration": 5,
+   "anwers in keyterms": ""
+ },
+ {
+   "question": "How can a community present itself?",
+   "order": "",
+   "tags": "",
+   "images": "",
+   "duration": 5,
+   "anwers in keyterms": ""
+ },
+ {
+   "question": "How can a community communicate its values or expectations?",
+   "order": "",
+   "tags": "",
+   "images": "",
+   "duration": null,
+   "anwers in keyterms": ""
+ },
+ {
+   "question": "How good or bad it is when capitalism swallows anarchic / commonist ideas? for example the horizontalization of companies structure. Or how do you see it: are we feeding justice to capitalism, or is capitalism using this to its own gain?",
+   "order": "mid",
+   "tags": "politics",
+   "images": "",
+   "duration": 10,
+   "anwers in keyterms": ""
+ }
+]
