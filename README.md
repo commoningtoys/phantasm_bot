@@ -1,4 +1,4 @@
-# 👻 Phantasm Moderator Bot 🤖
+# 👻 [Phantasm Moderator Bot](http://commoning.rocks/phantasm_bot/) 🤖
 
 For the coming [Transmediale](https://transmediale.de/) the "Thinking 💭 Toys 🧸" team will host a talk at Cafe Stage (📆 02. Feb. 2019 🕚 11:00 – 🕧 12:30)
 
