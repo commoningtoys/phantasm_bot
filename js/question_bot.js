@@ -2,7 +2,7 @@
 const order = ['intro', 'mid', 'outro'];
 const tags = ['politics', 'governance', 'technology', 'commoning', 'personal'];
 const path = 'data/phantasm_question.json';
-const second = 1000;
+const second = 100;
 const minute = 60 * second;
 const duration = 80;
 const time = {
@@ -11,16 +11,15 @@ const time = {
     min: 0
 };
 const question_text = document.querySelector('div#question b');
-const question_tree = [];
 
 const synth = window.speechSynthesis;
 /******************* VARS *******************/
 
-let question_sequence;
+let questions;
 let timer;
-let intro = 20;
-let mid = 40;
-let outro = 20;
+let intro = 10;
+let mid = 60;
+let outro = 10;
 let section = order[0];
 let bg_rot = 0;
 let inc = 0.05;
@@ -28,25 +27,100 @@ let first_timer;
 let second_timer;
 let type_index = 0;
 let type_interval;
+let question_sequence = [];
+let question_idx = 0;
+let prev_tag;
+let curr_tag;
 /******************* UTILS *******************/
 /**
  * @param {Array} arr
  * @return random element 
  */
-function pick_question(arr) {
-    // we should improve by taking in consideration the time left and the priority of the question
-    console.log(arr);
-    const random_index = Math.floor(Math.random() * arr.length);
-    const result = arr[random_index];
-    arr.splice(random_index, 1);
-    console.log(arr);
+function pick_question(arr, tag) {
+    // first we filter the array by the tag
+    const filtered_arr = arr.filter(result => {
+        if (result.tags === tag) return result;
+    });
+    // console.log(filtered_arr);
+    const random_index = Math.floor(Math.random() * filtered_arr.length);
+    const result = filtered_arr[random_index];
+    // here we need to remove this element from the parent array
+    let i = 0;
+    for (const el of arr) {
+        if (el.question === result.question) {
+            arr.splice(i, 1);
+        }
+        i++;
+    }
+    console.log(result);
     if (arr.length <= 0) return { question: 'no more questions 😭' };
     else return result;
 }
 
+function pick_random_question(){
+    const random_idx = Math.floor(Math.random() * questions['mid'].length);
+    const result = questions['mid'][random_idx];
+    questions['mid'].splice(random_idx, 1);
+    return result;
+}
+
+function make_question_sequence(questions) {
+    const result = []
+    // first element is the intro
+    result.push(questions['intro'][0]);
+    // here we feed the mid section
+    let first_branch = [];
+    let second_branch = [];
+    let outro_tag = '';
+    const branch_economy = ['politics', 'technology', 'personal'];
+    const branch_tech = ['personal', 'governance', 'politics'];
+    const prob1 = Math.random() * 100;
+    if (prob1 < 50) {
+        result.push(pick_question(questions['mid'], 'economy'));
+        first_branch = branch_economy;
+        const prob2 = Math.random() * 100;
+        if (prob2 < 50) {
+            second_branch = ['politics', 'technology'];
+            outro_tag = 'technology'
+        } else {
+            second_branch = ['economy', 'governance'];
+            outro_tag = 'technology'
+        }
+    } else {
+        result.push(pick_question(questions['mid'], 'technology'));
+        first_branch = branch_tech;
+        const prob2 = Math.random() * 100;
+        if (prob2 < 50) {
+            second_branch = ['communication', 'technology'];
+            outro_tag = 'technology'
+        } else {
+            second_branch = ['technology', 'governance'];
+            outro_tag = 'politics'
+        }
+    }
+    // here we add the three question according to the first_branch
+    for (const term of first_branch) {
+        result.push(pick_question(questions['mid'], term));
+    }
+    for (const term of second_branch) {
+        result.push(pick_question(questions['mid'], term));
+    }
+    result.push(pick_question(questions['outro'], outro_tag));
+    console.log(result);
+    // while(result.length < 7){
+
+    // }
+    return result;
+}
 
 function speak(speech_text) {
-    const speech = new SpeechSynthesisUtterance(speech_text);
+    // first we check wether the argument is text or an object
+    // if it is an object than we use the inner text of the question
+    let sp_text = speech_text;
+    if (typeof speech_text === 'object') {
+        sp_text = question_text.innerText;
+    }
+    const speech = new SpeechSynthesisUtterance(sp_text);
     speech.voice = synth.getVoices()[31];
     speech.rate = 0.1;
     speech.volume = 1;
@@ -61,10 +135,10 @@ function speak(speech_text) {
 function set_BG_gif(terms) {
     const panels = document.getElementsByClassName('panel');
     let i = 0;
-    const rnd = Math.floor(Math.random() * panels.length);
+    const rnd = 4;
     for (const el of panels) {
         if (i != rnd) {
-            console.log(i, rnd)
+            // console.log(i, rnd)
             const random_idx = Math.floor(Math.random() * terms.length);
             const term = terms[random_idx];
             // console.log(term);
@@ -87,16 +161,6 @@ function set_BG_gif(terms) {
     }
 
 }
-
-set_BG_gif(['vaporwave']);
-
-// get the json from local file
-$.ajax({
-    dataType: 'json',
-    url: path,
-    // data: data,
-    success: success
-})
 // what we do with the JSON
 function success(data) {
     // console.log(data);
@@ -104,7 +168,7 @@ function success(data) {
     // here we filter the questions from the array
     // and we make an array that divides the
     // questions by their order: intro|mid|outro
-    let questions = {};
+    questions = {};
     for (const term of order) {
         questions[term] = data.filter(result => {
             // console.log(result.order, term);
@@ -113,9 +177,10 @@ function success(data) {
             }
         })
     }
-    // set first button
     console.log(questions);
-    question_sequence = questions;
+    question_sequence = make_question_sequence(questions);
+    console.log(question_sequence);
+    // set first button
     const btn = document.createElement('div');
     btn.innerText = '👻🏁⁉️';
     btn.setAttribute('class', 'btn')
@@ -128,7 +193,7 @@ function success(data) {
 }
 
 function init() {
-    console.log('initialize');
+    // console.log('initialize');
     /**
      * start the timer here
      */
@@ -145,58 +210,58 @@ function init() {
         for (const el of dom_timer) {
             el.innerText = make_time;
         }
-        // document.getElementById('timer').innerText = make_time;
-
-        // here we set wich part of the question should we look at
-        if (time.min == intro) {
-            console.log('switch to mid');
-            section = 'mid';
-        }
-        if (time.min == intro + mid) {
-            console.log('switch to outro');
-            section = 'outro'
-        }
-
-
-
     }, second);
-    /*********remove start button**********/
-    const btn = document.getElementById('remove-me');
+    /*********remove start button
+     * add two other buttons
+     * speak and next button**********/
     const parent = document.getElementById('question');
+    const btn = document.getElementById('remove-me');
     parent.removeChild(btn);
     const next_btn = document.createElement('div');
     next_btn.innerText = '⇥';
     next_btn.setAttribute('class', 'btn')
     next_btn.addEventListener('click', next_question);
     parent.appendChild(next_btn);
+
+    const speak_btn = document.createElement('div');
+    speak_btn.innerText = '🗣';
+    speak_btn.setAttribute('class', 'btn')
+    speak_btn.addEventListener('click', speak);
+    parent.appendChild(speak_btn);
     /**************************************************/
 
 
-    // question_text.innerText = question_sequence[section][0].question;
-    // set_BG_gif(question_sequence[section][0].tags);
-    // question_timer(question_sequence[section][0].duration);
-    set_question(question_sequence[section][0])
-    question_sequence[section].splice(0, 1);
+    // question_text.innerText = questions[section][0].question;
+    // set_BG_gif(questions[section][0].tags);
+    // question_timer(questions[section][0].duration);
+    // set_question(question_sequence[question_idx]);
+    next_question();
+    // questions[section].splice(0, 1);
 }
 
-
-
 function next_question() {
-    console.log('next question!');
-    const question = pick_question(question_sequence[section]);
-    console.log(question);
+    // console.log('next question!');
+    let question;
+    if (question_idx >= question_sequence.length) {
+        question = pick_random_question();
+    } else {
+        question = question_sequence[question_idx];
+    }
+    question_idx++;
+    // console.log(question);
     window.clearTimeout(first_timer);
     window.clearTimeout(second_timer);
     set_question(question);
+
 }
 
 function set_question(question) {
     // question_text.innerText = question.question === 'undefined' ? question : question.question;
-    console.log(question.keywords.split(' '));
+    // console.log(question.keywords.split(' '));
     // here we update the question div bg
     bg_rot = Math.random();
-    const bg_style = 'background: linear-gradient(' + bg_rot + 'turn,'+css_rgba_random_color()+','+css_rgba_random_color()+','+css_rgba_random_color()+');'
-    console.log(bg_style);
+    const bg_style = 'background: linear-gradient(' + bg_rot + 'turn,' + css_rgba_random_color() + ',' + css_rgba_random_color() + ',' + css_rgba_random_color() + ');'
+    // console.log(bg_style);
     document.getElementById('question').style = bg_style;
     if (bg_rot >= 1) bg_rot = 0;
     set_BG_gif(question.keywords.split(' '));
@@ -206,7 +271,7 @@ function set_question(question) {
 }
 
 function question_timer(minutes) {
-    console.log(minutes * minute);
+    // console.log(minutes * minute);
     /**
      * question timer
      */
@@ -228,6 +293,7 @@ function question_timer(minutes) {
 }
 
 function type_question(term) {
+    clearInterval(type_interval);
     const char_array = term.split('');
     type_index = 0;
     question_text.innerText = '';
@@ -240,10 +306,23 @@ function type_question(term) {
     }, 50)
 }
 
-function css_rgba_random_color(){
+function css_rgba_random_color() {
     const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
     const a = 0.95;
-    return 'rgba('+r+','+g+','+b+','+a+')'
+    return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')'
 }
+
+
+
+
+set_BG_gif(['vaporwave']);
+
+// get the json from local file
+$.ajax({
+    dataType: 'json',
+    url: path,
+    // data: data,
+    success: success
+})

@@ -1,5 +1,10 @@
+
+@import url('https://fonts.googleapis.com/css?family=Anton|Major+Mono+Display');
+
 html {
     font-size: 100%;
+    font-family: 'Major Mono Display', monospace;
+    font-family: 'Anton', sans-serif;
 }
 
 body {
@@ -18,7 +23,7 @@ body {
 
 .timer {
     position: absolute;
-    font-size: 5rem;
+    font-size: 3.5rem;
     font-weight: bolder;
     color: #fff;
     /* text-align: center; */
@@ -29,6 +34,15 @@ body {
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
+}
+
+.mirror {
+    -moz-transform: translate(-50%, -50%) scale(1, -1);
+    -webkit-transform: translate(-50%, -50%) scale(1, -1);
+    -o-transform: translate(-50%, -50%) scale(1, -1);
+    -ms-transform: translate(-50%, -50%) scale(1, -1);
+    transform: translate(-50%, -50%) scale(1, -1);
+
 }
 
 #question {
@@ -48,24 +62,27 @@ body {
     height: 85vh; */
     padding: 15px;
     font-size: 3rem;
-    line-height: 3rem;
-    text-transform: uppercase;
+    /* line-height: 3rem; */
+    /* text-transform: uppercase; */
     background-color: rgb(255, 255, 255);
     /* background: linear-gradient(0.5turn, #0ff, #ff0, #f0f); */
-    outline: solid 5px #0f0;
-    box-shadow: 15px 15px 5px #00f;
+    outline: solid 5px #f00;
+    /* box-shadow: 15px 15px 5px #00f; */
     /* mix-blend-mode: exclusion; */
     text-align: center;
     background: linear-gradient( #0ff, #ff0, #f0f);
 }
 
 #question b {
-    /* text-shadow: #aaa 5px 5px; */
-    color: #fff;
-    mix-blend-mode: exclusion;
+    text-shadow: #00f 3px 3px;
+    /* font-family: 'Courier New', Courier, monospace; */
+    /* text-decoration: dotted underline #f00; */
+    color: #0f0;
+    /* background: #00f; */
     hyphens: auto;
     /* word-break: break-word; */
     word-wrap: break-word;
+    /* mix-blend-mode: exclusion; */
 }
 
 .btn {
@@ -78,8 +95,8 @@ body {
     padding: 1rem;
     margin: 0px auto;
     /* float: right; */
-    color: #ccc;
-    mix-blend-mode: exclusion;
+    color: #000;
+    /* mix-blend-mode: exclusion; */
     border-radius: 100%;
     /* left: 50%;
     transform: translate(-50%, 0); */
