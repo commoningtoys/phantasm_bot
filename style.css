@@ -43,7 +43,7 @@ body {
     width: -webkit-min-content;
     width: -moz-min-content;
     width: -o-min-content; */
-    width:50%;
+    width: 75%;
     /* width: 75%;
     height: 85vh; */
     padding: 15px;
@@ -51,18 +51,19 @@ body {
     line-height: 3rem;
     text-transform: uppercase;
     background-color: rgb(255, 255, 255);
-    background: linear-gradient(0.5turn, #0ff, #ff0, #f0f);
+    /* background: linear-gradient(0.5turn, #0ff, #ff0, #f0f); */
     outline: solid 5px #0f0;
     box-shadow: 15px 15px 5px #00f;
     /* mix-blend-mode: exclusion; */
     text-align: center;
+    background: linear-gradient( #0ff, #ff0, #f0f);
 }
 
 #question b {
     /* text-shadow: #aaa 5px 5px; */
     color: #fff;
     mix-blend-mode: exclusion;
-    /* hyphens: manual; */
+    hyphens: auto;
     /* word-break: break-word; */
     word-wrap: break-word;
 }

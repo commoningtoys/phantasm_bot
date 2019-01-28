@@ -15,7 +15,7 @@ const question_tree = [];
 
 const synth = window.speechSynthesis;
 /******************* VARS *******************/
-// let questions
+
 let question_sequence;
 let timer;
 let intro = 20;
@@ -26,7 +26,8 @@ let bg_rot = 0;
 let inc = 0.05;
 let first_timer;
 let second_timer;
-
+let type_index = 0;
+let type_interval;
 /******************* UTILS *******************/
 /**
  * @param {Array} arr
@@ -53,7 +54,7 @@ function speak(speech_text) {
 }
 
 /**
- * 
+ * stes a gif on the wall of the cube but only on 4 out of 5 leaving one wall empty
  * @param {String} term
  * @returns url to a gif from the giphy library 
  */
@@ -78,7 +79,7 @@ function set_BG_gif(terms) {
                 el.style.backgroundImage = 'url(' + img_url + ')';
                 // BG.css('background-image', 'url(' + url + ')');
             })
-        }else{
+        } else {
             el.style.backgroundImage = null;
             // el.style.backgroundColor = '#00f';
         }
@@ -89,14 +90,20 @@ function set_BG_gif(terms) {
 
 set_BG_gif(['vaporwave']);
 
+// get the json from local file
 $.ajax({
     dataType: 'json',
     url: path,
     // data: data,
     success: success
 })
+// what we do with the JSON
 function success(data) {
     // console.log(data);
+
+    // here we filter the questions from the array
+    // and we make an array that divides the
+    // questions by their order: intro|mid|outro
     let questions = {};
     for (const term of order) {
         questions[term] = data.filter(result => {
@@ -110,7 +117,7 @@ function success(data) {
     console.log(questions);
     question_sequence = questions;
     const btn = document.createElement('div');
-    btn.innerText = '🏇🏁⁉️';
+    btn.innerText = '👻🏁⁉️';
     btn.setAttribute('class', 'btn')
     btn.setAttribute('id', 'remove-me');
     btn.addEventListener('click', init);
@@ -151,11 +158,7 @@ function init() {
         }
 
 
-        // here we update the question div bg
-        const bg_style = 'background: linear-gradient(' + bg_rot + 'turn, #0ff, #ff0, #f0f);'
-        document.getElementById('question').style = bg_style;
-        bg_rot += inc;
-        if (bg_rot >= 1) bg_rot = 0;
+
     }, second);
     /*********remove start button**********/
     const btn = document.getElementById('remove-me');
@@ -188,11 +191,18 @@ function next_question() {
 }
 
 function set_question(question) {
-    question_text.innerText = question.question === 'undefined' ? question : question.question;
+    // question_text.innerText = question.question === 'undefined' ? question : question.question;
     console.log(question.keywords.split(' '));
+    // here we update the question div bg
+    bg_rot = Math.random();
+    const bg_style = 'background: linear-gradient(' + bg_rot + 'turn,'+css_rgba_random_color()+','+css_rgba_random_color()+','+css_rgba_random_color()+');'
+    console.log(bg_style);
+    document.getElementById('question').style = bg_style;
+    if (bg_rot >= 1) bg_rot = 0;
     set_BG_gif(question.keywords.split(' '));
     question_timer(question.duration);
-    speak(question.question);
+    // speak(question.question);
+    type_question(question.question);
 }
 
 function question_timer(minutes) {
@@ -215,4 +225,25 @@ function question_timer(minutes) {
         speak('second alert');
 
     }, (minutes + 5) * minute);
+}
+
+function type_question(term) {
+    const char_array = term.split('');
+    type_index = 0;
+    question_text.innerText = '';
+    type_interval = setInterval(() => {
+        const c = char_array[type_index];
+        if (c == ' ') question_text.innerHTML += '&nbsp;';
+        question_text.innerText += c;
+        type_index++;
+        if (type_index >= term.length) clearInterval(type_interval);
+    }, 50)
+}
+
+function css_rgba_random_color(){
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    const a = 0.95;
+    return 'rgba('+r+','+g+','+b+','+a+')'
 }
