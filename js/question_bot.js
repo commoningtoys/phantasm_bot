@@ -6,7 +6,7 @@ const path = 'data/phantasm_question.json';
 /**
  * EDIT HERE TO CHANGE THE SPEED OF THE BOT
  */
-const second = 10;
+const second = 1000;
 /******************************************/
 
 const minute = 60 * second;
