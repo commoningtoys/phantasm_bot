@@ -17,15 +17,15 @@ The bot has the task to order the question following a decision tree 🌲:
  		       			INTRO
         		  		  /\
 				________/ if \_________
- 			economy					technology
- 			politics				personal
- 			technology				governance
- 			personal				politics
-   				/\			           	/\
- 			  / if \		          / if \
- 	communication	technology	politics	economy
-    technology		governance	technology	governance
-    technology		politics	politics	politics
+ 			economy				technology
+ 			politics			personal
+ 			technology			governance
+ 			personal			politics
+   			   /\			           /\
+ 			 / if \		                 / if \
+ 	    communication	technology	politics	economy
+            technology		governance	technology	governance
+            technology		politics	politics	politics
  
 ```
 
