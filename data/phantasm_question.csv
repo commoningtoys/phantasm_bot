@@ -1,22 +1,31 @@
-question,order ,tags ,images,duration,anwers in keyterms,comments
-What does commoning with tech mean to you?,intro,personal,,10,,
-How could future technologies foster commoning?,outro,technology,,5,,
-Do you think decentralization is a phantasm? ,outro,politics,,10,,to me this feels to obvious of a blockchain question
-How are decentralization and technology related to each other?,mid,governance,,,,
-Who do you trust more: people or algorithms? Or even more broader: people or technology?,mid,technology,,5,,"originally, this question was why do we trust people more than algorithms - I think it's more interesting this way"
-Is technology based on reason or on rhetoric?,,,,,,
-Is a good society a predictable society?,mid,governance,,5,ABM,
-Is surveillance always bad?,mid,governance,,10,,
-Why do you think are utopias always communist and why does this not work in reality?,,politics,,,,this could be connected with question 4
-Are you ready to give up individualism?,intro,personal,,5,,
-How can we build up trust in a community?,mid,governance,,10,,
-Who decides what is of value to whom?,mid,politics,,10,,
-How can an algorithm be fairer than those who design it?,mid,technology/governance,,10,,
-Do you think money ruins everything?,,economy,,,,
-Can we think algorithms as common? Is there an algorithmic commons (space)?,,governance,,,,
-How important is knowing each other for a commonist situation?,intro,personal,,,,
-What techniques of (quickly) disclosing your identity can you think of?,intro,,,,"here i think of authenticity and authentication, bitcoin style trust etc",
-How would you present yourself to a stranger - to a community?,intro,,,5,,
-How can a community present itself?,,,,5,,don't understand where this question is going
-How can a community communicate its values or expectations?,,,,,,
-"How good or bad it is when capitalism swallows anarchic / commonist ideas? for example the horizontalization of companies structure. Or how do you see it: are we feeding justice to capitalism, or is capitalism using this to its own gain?",mid,politics,,10,,
+question,order ,tags,keywords,fix,images,duration,anwers in keyterms,comments
+What does commoning with tech mean to you?,intro,personal,commoning technology,yes,,10,,
+"How ready are you to give up individualism (for the sake of commons, community)?",intro,personal,community individualism,,,5,,
+How important is knowing each other for a commonist situation?,intro,personal,empathy commoning,,,5,,
+Can we think algorithms as common? Is there an algorithmic commons?,intro,governance,algorithm commoning,,,5,,
+Why do you think are utopias always communist/commonist and why does this not work in reality?,mid,politics,utopia communism,,,10,,this could be connected with question 4
+Is technology based on reason or on rhetoric?,mid,politics,technology reason rhetoric,,,5,,
+Who decides what is of value to whom?,mid,politics,value decision,,,10,,
+"How good or bad it is when capitalism swallows anarchic / commonist ideas? for example the horizontalization of companies structure. Or how do you see it: are we feeding justice to capitalism, or is capitalism using this to its own gain?",mid,politics,capitalism anarchy commoning,,,10,,
+What does money ruin? What benefits could money-less economy bring?,mid,economy,money,,,10,,
+What is the biggest difference between commoning and the sharing economy?,mid,economy,commonig economy sharing,,,5,,
+If a community turned completely towards circular economy - so that members do not have to work outside of the tasks they contribute to community life - what media could you envision to facilitate that?  ,mid,"economy, technology",community economy,,,10,,
+How are decentralization and technology related to each other?,mid,governance,decentralization technology,,,5,,
+Is a good society a predictable society?,mid,governance,society predictabble,,,5,ABM,
+Is surveillance always bad?,mid,governance,surveillance,,,10,,
+How can we build up trust in a community?,mid,governance,community trust,,,10,,
+What is an ideal (good) scale for a commoning community - household / region / global?,mid,governance,community household,,,5,,
+How can infrastructure support stuartship and care?,mid,"governance, technology",infrastructure care,,,5,,
+When is the time to automate and when is the time to re/negotiate?,mid,"technology, governance",automation ,,,5,,
+How can an algorithm be fairer than those who design it?,mid,"technology, governance",algorithm fairness,,,10,,
+Who do you trust more: people or algorithms? Or even more broader: people or technology?,mid,technology,trust algorithm ,,,5,,"originally, this question was why do we trust people more than algorithms - I think it's more interesting this way"
+What technology can you envision to account for agency of non-human actants in commoning situations?,mid,technology,non-human agency,,,10,,
+"Can the idea of ""packet switching"" in networking be applied to a commoning situation such as ""warm water switching"", ""dinner switching"" or ""task switching""?",mid,technology,networking commoning,,,5,,
+"Typical capitalist business claims that in order to provide an optimal quality of a service, centralization is necessary (think At&T for telecommunications or Holywood for cinema). What commoning tech would we need so that alternative models of services and production could flourish?",mid,technology,capitalism production,,,10,,
+Data mining versus simulation for commoning?,mid,technology,data mining,,,10,,
+What techniques of (quickly) disclosing your identity can you think of?,mid,communication,identity,,,5,,"here i think of authenticity and authentication, bitcoin style trust etc"
+How can a community communicate its values or expectations?,mid,communication,community values,,,5,nima,
+How could future technologies foster commoning?,outro,technology,future technology,,,5,,
+What technologies and media facilitate commoning of resources?,outro,technology,media technology,,,5,,
+Do you think decentralization is a phantasm? ,outro,politics,decentralization phantasm,,,10,,to me this feels to obvious of a blockchain question
+How can commoning inspire design of new systems? ,outro,,inspiration systems,,,10,,
