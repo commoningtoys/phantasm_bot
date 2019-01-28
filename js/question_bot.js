@@ -2,7 +2,13 @@
 const order = ['intro', 'mid', 'outro'];
 const tags = ['politics', 'governance', 'technology', 'commoning', 'personal'];
 const path = 'data/phantasm_question.json';
-const second = 100;
+
+/**
+ * EDIT HERE TO CHANGE THE SPEED OF THE BOT
+ */
+const second = 10;
+/******************************************/
+
 const minute = 60 * second;
 const duration = 80;
 const time = {
@@ -288,7 +294,7 @@ function question_timer(minutes) {
         console.log('second alert');
 
         speak('second alert');
-
+        next_question();
     }, (minutes + 5) * minute);
 }
 
