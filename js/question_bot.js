@@ -6,7 +6,7 @@ const path = 'data/phantasm_question.json';
 /**
  * EDIT HERE TO CHANGE THE SPEED OF THE BOT
  */
-const second = 1000;
+const second = 100;
 /******************************************/
 
 const minute = 60 * second;
@@ -37,6 +37,7 @@ let question_sequence = [];
 let question_idx = 0;
 let prev_tag;
 let curr_tag;
+let initialized = false;
 /******************* UTILS *******************/
 /**
  * @param {Array} arr
@@ -58,12 +59,12 @@ function pick_question(arr, tag) {
         }
         i++;
     }
-    console.log(result);
+    // console.log(result);
     if (arr.length <= 0) return { question: 'no more questions 😭' };
     else return result;
 }
 
-function pick_random_question(){
+function pick_random_question() {
     const random_idx = Math.floor(Math.random() * questions['mid'].length);
     const result = questions['mid'][random_idx];
     questions['mid'].splice(random_idx, 1);
@@ -112,7 +113,7 @@ function make_question_sequence(questions) {
         result.push(pick_question(questions['mid'], term));
     }
     result.push(pick_question(questions['outro'], outro_tag));
-    console.log(result);
+    // console.log(result);
     // while(result.length < 7){
 
     // }
@@ -168,7 +169,7 @@ function set_BG_gif(terms) {
 
 }
 // what we do with the JSON
-function success(data) {
+function readJSON(data) {
     // console.log(data);
 
     // here we filter the questions from the array
@@ -183,9 +184,9 @@ function success(data) {
             }
         })
     }
-    console.log(questions);
+    // console.log(questions);
     question_sequence = make_question_sequence(questions);
-    console.log(question_sequence);
+    // console.log(question_sequence);
     // set first button
     const btn = document.createElement('div');
     btn.innerText = '👻🏁⁉️';
@@ -197,9 +198,11 @@ function success(data) {
     // next_question();
     // make_question_sequence(questions)
 }
-
+/**
+ * initialize the phantasm bot
+ */
 function init() {
-    // console.log('initialize');
+    initialized = true;
     /**
      * start the timer here
      */
@@ -244,7 +247,9 @@ function init() {
     next_question();
     // questions[section].splice(0, 1);
 }
-
+/**
+ * goes to the next questions
+ */
 function next_question() {
     // console.log('next question!');
     let question;
@@ -260,7 +265,10 @@ function next_question() {
     set_question(question);
 
 }
-
+/**
+ * sets the question in the question box
+ * @param {Object} question 
+ */
 function set_question(question) {
     // question_text.innerText = question.question === 'undefined' ? question : question.question;
     // console.log(question.keywords.split(' '));
@@ -275,7 +283,10 @@ function set_question(question) {
     // speak(question.question);
     type_question(question.question);
 }
-
+/**
+ * sets an alarm that reminds the speaker that 10 minutes have passed
+ * @param {Number} minutes an integer representing the minutes
+ */
 function question_timer(minutes) {
     // console.log(minutes * minute);
     /**
@@ -285,7 +296,7 @@ function question_timer(minutes) {
         // play a melody
         console.log('first alert');
 
-        speak('first alert');
+        speak(minutes + 'minutes have passed');
     }, minutes * minute);
 
 
@@ -293,11 +304,14 @@ function question_timer(minutes) {
         // play a melody
         console.log('second alert');
 
-        speak('second alert');
+        speak((minutes + 5) + 'minutes have passed');
         next_question();
     }, (minutes + 5) * minute);
 }
-
+/**
+ * types a sententence in the question box
+ * @param {String} term a sentence to be typed as a typewriter
+ */
 function type_question(term) {
     clearInterval(type_interval);
     const char_array = term.split('');
@@ -311,7 +325,9 @@ function type_question(term) {
         if (type_index >= term.length) clearInterval(type_interval);
     }, 50)
 }
-
+/**
+ * @returns a String containing a random rgba color 
+ */
 function css_rgba_random_color() {
     const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
@@ -330,5 +346,11 @@ $.ajax({
     dataType: 'json',
     url: path,
     // data: data,
-    success: success
+    success: readJSON
+})
+
+window.addEventListener('keypress', (event)=>{
+    if(event.key === ' ' && initialized){
+        next_question();
+    }
 })
