@@ -19,6 +19,7 @@ const time = {
 const question_text = document.querySelector('div#question b');
 
 const synth = window.speechSynthesis;
+// const speech = 
 /******************* VARS *******************/
 
 let questions;
@@ -130,9 +131,9 @@ function speak(speech_text) {
     const speech = new SpeechSynthesisUtterance(sp_text);
 
     const cool_voices_names = ['Bells', 'Bad News', 'Cellos', 'Good News', 'Pipe Organ', 'Trinoids', 'Zarvox']
-    const voices_list = synth.getVoices().filter(result =>{
+    const voices_list = synth.getVoices().filter(result => {
         for (const voice of cool_voices_names) {
-            if(result.name === voice)return result;
+            if (result.name === voice) return result;
         }
         // if(result.lang.includes('en'))return result
     });
@@ -213,6 +214,8 @@ function readJSON(data) {
  */
 function init() {
     initialized = true;
+    // end the repeating text
+    window.clearInterval(repeat_speech);
     /**
      * start the timer here
      */
@@ -358,9 +361,17 @@ $.ajax({
     // data: data,
     success: readJSON
 })
+const init_text = 'Phantasms of Decentralization? Conversations about Commoning with Coming Media';
+speak(init_text);
+const repeat_speech = window.setInterval(() => {
+    console.log('speak');
+    speak(init_text)
+}, minute);
+// 
 
-window.addEventListener('keypress', (event)=>{
-    if(event.key === ' ' && initialized){
+window.addEventListener('keypress', (event) => {
+    if (event.key === ' ' && initialized) {
         next_question();
     }
+    if(event.key === 'q')clearInterval(repeat_speech);
 })
