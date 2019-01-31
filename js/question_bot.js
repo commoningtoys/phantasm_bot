@@ -6,7 +6,7 @@ const path = 'data/phantasm_question.json';
 /**
  * EDIT HERE TO CHANGE THE SPEED OF THE BOT
  */
-const second = 100;
+const second = 1000;
 /******************************************/
 
 const minute = 60 * second;
@@ -128,6 +128,7 @@ function speak(speech_text) {
         sp_text = question_text.innerText;
     }
     const speech = new SpeechSynthesisUtterance(sp_text);
+    console.log(synth.getVoices());
     speech.voice = synth.getVoices()[31];
     speech.rate = 0.1;
     speech.volume = 1;
@@ -152,7 +153,7 @@ function set_BG_gif(terms) {
             const url = 'https://api.giphy.com/v1/gifs/random?api_key=WjDrZ8vA5Xh8Hrd6EjRaQSNP7y1mv3t4&tag=' + term + '&rating=R'
             const xhr = $.get(url);
             xhr.done(data => {
-                console.log("success got data", data)
+                // console.log("success got data", data)
                 const img_url = data.data.image_original_url;//fixed_width_small_url;//image_original_url //fixed_width_small_url
                 // console.log(img_url)
                 // here we set the background gif

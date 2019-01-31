@@ -1,17 +1,13 @@
-
 @import url('https://fonts.googleapis.com/css?family=BioRhyme+Expanded|EB+Garamond:800');
-
 html {
     font-size: 100%;
     font-family: 'BioRhyme Expanded', serif;
-
     font-family: 'EB Garamond', serif;
 }
 
 body {
     margin: 0px;
     padding: 0px;
-
     background-color: #f0f;
 }
 
@@ -26,7 +22,7 @@ body {
 
 .timer {
     position: absolute;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: bolder;
     color: #fff;
     /* text-align: center; */
@@ -46,7 +42,6 @@ body {
     -o-transform: translate(-50%, -50%) scale(1, -1);
     -ms-transform: translate(-50%, -50%) scale(1, -1);
     transform: translate(-50%, -50%) scale(1, -1);
-
 }
 
 #question {
@@ -75,7 +70,7 @@ body {
     /* box-shadow: 15px 15px 5px #00f; */
     /* mix-blend-mode: exclusion; */
     text-align: center;
-    background: linear-gradient( #0ff, #ff0, #f0f);
+    background: linear-gradient(0.15turn, rgba(0, 255, 255, 0.75), rgba(255, 255, 0, 0.75), rgba( 255, 0, 255, 0.75));
 }
 
 #question b {
@@ -163,17 +158,17 @@ body {
 .panel-bottom {
     transform: rotateX(-90deg) translateZ(333px);
 }
-.gif-container{
+
+.gif-container {
     position: absolute;
     width: 100%;
-    height: 100% ;
+    height: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
-
     background-color: #00f;
     outline: solid 3px #0f0;
     background-repeat: no-repeat;
