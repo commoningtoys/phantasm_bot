@@ -36,6 +36,7 @@ let type_index = 0;
 let type_interval;
 let question_sequence = [];
 let question_idx = 0;
+let current_question = '';
 let prev_tag;
 let curr_tag;
 let initialized = false;
@@ -126,7 +127,7 @@ function speak(speech_text) {
     // if it is an object than we use the inner text of the question
     let sp_text = speech_text;
     if (typeof speech_text === 'object') {
-        sp_text = question_text.innerText;
+        sp_text = current_question;
     }
     const speech = new SpeechSynthesisUtterance(sp_text);
 
@@ -293,8 +294,11 @@ function set_question(question) {
     if (bg_rot >= 1) bg_rot = 0;
     set_BG_gif(question.keywords.split(' '));
     question_timer(question.duration);
+    // we set the question as current to pass it to the speech synthsizer
+    current_question = question.question;
     // speak(question.question);
-    type_question(question.question);
+    const question_number = question_idx + '/' + question_sequence.length + '\n';
+    type_question(question_number + question.question);
 }
 /**
  * sets an alarm that reminds the speaker that 10 minutes have passed
@@ -374,4 +378,5 @@ window.addEventListener('keypress', (event) => {
         next_question();
     }
     if(event.key === 'q')clearInterval(repeat_speech);
+    if(event.key === 's')speak(current_question);
 })
