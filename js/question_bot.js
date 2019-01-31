@@ -128,9 +128,18 @@ function speak(speech_text) {
         sp_text = question_text.innerText;
     }
     const speech = new SpeechSynthesisUtterance(sp_text);
-    console.log(synth.getVoices());
-    speech.voice = synth.getVoices()[31];
-    speech.rate = 0.1;
+
+    const cool_voices_names = ['Bells', 'Bad News', 'Cellos', 'Good News', 'Pipe Organ', 'Trinoids', 'Zarvox']
+    const voices_list = synth.getVoices().filter(result =>{
+        for (const voice of cool_voices_names) {
+            if(result.name === voice)return result;
+        }
+        // if(result.lang.includes('en'))return result
+    });
+    const random_idx = Math.floor(Math.random() * voices_list.length);
+    const voice = voices_list[random_idx];
+    speech.voice = voice;
+    // speech.rate = 0.1;
     speech.volume = 1;
     synth.speak(speech);
 }
