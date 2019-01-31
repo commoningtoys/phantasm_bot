@@ -140,7 +140,7 @@ function speak(speech_text) {
  * @returns url to a gif from the giphy library 
  */
 function set_BG_gif(terms) {
-    const panels = document.getElementsByClassName('panel');
+    const panels = document.getElementsByClassName('gif-container');
     let i = 0;
     const rnd = 4;
     for (const el of panels) {
@@ -152,8 +152,8 @@ function set_BG_gif(terms) {
             const url = 'https://api.giphy.com/v1/gifs/random?api_key=WjDrZ8vA5Xh8Hrd6EjRaQSNP7y1mv3t4&tag=' + term + '&rating=R'
             const xhr = $.get(url);
             xhr.done(data => {
-                // console.log("success got data", data)
-                const img_url = data.data.image_original_url;//image_original_url //fixed_width_small_url
+                console.log("success got data", data)
+                const img_url = data.data.image_original_url;//fixed_width_small_url;//image_original_url //fixed_width_small_url
                 // console.log(img_url)
                 // here we set the background gif
                 // const BG = $('#background');
@@ -332,7 +332,7 @@ function css_rgba_random_color() {
     const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
-    const a = 0.95;
+    const a = 0.75;
     return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')'
 }
 
