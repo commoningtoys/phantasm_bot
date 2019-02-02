@@ -8,7 +8,7 @@ html {
 body {
     margin: 0px;
     padding: 0px;
-    background-color: #f0f;
+    background-color: #00f;
 }
 
 #background {
@@ -70,7 +70,7 @@ body {
     /* box-shadow: 15px 15px 5px #00f; */
     /* mix-blend-mode: exclusion; */
     text-align: center;
-    background: linear-gradient(0.15turn, rgba(0, 255, 255, 0.75), rgba(255, 255, 0, 0.75), rgba( 255, 0, 255, 0.75));
+    background: linear-gradient(0.15turn, rgba(0, 255, 255, 0.4), rgba(255, 255, 0, 0.4), rgba( 255, 0, 255, 0.4));
 }
 
 #question b {
@@ -82,7 +82,7 @@ body {
     hyphens: auto;
     /* word-break: break-word; */
     word-wrap: break-word;
-    /* mix-blend-mode: exclusion; */
+    mix-blend-mode: exclusion;
 }
 
 .btn {
@@ -171,6 +171,14 @@ body {
     -o-transform: translate(-50%, -50%);
     background-color: #00f;
     outline: solid 3px #0f0;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat;*/
+    background-repeat: repeat-x;
     background-position: center center;
+    background-size: 400px 250px
+
+}
+
+.panel-top div.gif-container{
+    background-repeat: repeat-y;
+    background-position: top;
 }
